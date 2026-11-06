@@ -1,0 +1,74 @@
+{
+  "enable": {
+    "type": "bool",
+    "description": "启用插件",
+    "hint": "启用后将接管 AI 回复的语音合成，使用 Breeze Blue TTS API",
+    "default": true
+  },
+  "api_key": {
+    "type": "string",
+    "description": "Breeze Blue API Key",
+    "hint": "在 https://breezeblue.ai/ 申请",
+    "default": ""
+  },
+  "api_base_url": {
+    "type": "string",
+    "description": "API Base URL",
+    "hint": "Breeze Blue API 基础地址，ElevenLabs 兼容接口",
+    "default": "https://api.breeze.blue/v1"
+  },
+  "model_id": {
+    "type": "string",
+    "description": "模型 ID",
+    "hint": "如 breeze-tts-2 或 breeze-tts-2-multilingual",
+    "default": "breeze-tts-2"
+  },
+  "voice_id": {
+    "type": "string",
+    "description": "Voice ID（音色 ID）",
+    "hint": "在 Breeze 控制台或通过 API 查询，例如 voc_xxx",
+    "default": ""
+  },
+  "speed": {
+    "type": "float",
+    "description": "语速倍率",
+    "hint": "语音合成语速倍率，1.0 为正常，0.5 放慢一倍，2.0 加快一倍",
+    "default": 1.0
+  },
+  "style_instruction": {
+    "type": "string",
+    "description": "风格描述指令",
+    "hint": "给 TTS 模型的风格/语气/情感指令，例如：温柔的女声，带一点俏皮，语速稍快。留空则使用默认语气",
+    "default": ""
+  },
+  "auto_tts_probability": {
+    "type": "int",
+    "description": "自动语音概率 (0-100)",
+    "hint": "AI 回复后自动转换为语音的概率。0 = 完全不自动，100 = 每次都转。即使设为 0，也可通过 /tts 指令手动触发",
+    "default": 50
+  },
+  "tail_padding": {
+    "type": "string",
+    "description": "尾部填充字符",
+    "hint": "合成前自动在文本末尾追加，防止流式截断。保持默认句号即可，留空表示不追加",
+    "default": "。"
+  },
+  "max_text_length": {
+    "type": "int",
+    "description": "单次合成最大字符数",
+    "hint": "每次发送给 TTS API 的最大字符数。超过自动分段后逐段合成拼接。Breeze API 上限 1000",
+    "default": 500
+  },
+  "use_streaming": {
+    "type": "bool",
+    "description": "使用流式接口（不推荐）",
+    "hint": "默认使用非流式接口彻底解决截断问题。仅在确有低延迟需求时才开启流式",
+    "default": false
+  },
+  "dual_output": {
+    "type": "bool",
+    "description": "语音 + 文字同时发送",
+    "hint": "开启后 AI 回复时既发语音也发对应文字，关闭则只发语音替换文字",
+    "default": true
+  }
+}

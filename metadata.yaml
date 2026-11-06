@@ -1,0 +1,14 @@
+name: astrbot_plugin_breeze_tts_fix
+version: "1.0.0"
+author: Trae
+desc: 基于 Breeze Blue TTS（ElevenLabs 兼容）的修复版语音合成插件。解决原生 TTS Provider 流式返回导致的尾部截断问题，支持语速调节、风格描述指令、自动语音概率。
+display_name: Breeze TTS 修复版
+short_desc: 解决 Breeze TTS 尾部截断，支持语速/风格/概率
+support_platforms:
+  - aiocqhttp
+  - telegram
+  - wecom
+  - lark
+  - dingtalk
+  - slack
+astrbot_version: ">=4.16"
